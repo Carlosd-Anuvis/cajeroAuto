@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bank</title>
+    <!-- Bootstrap library -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <!-- Bootstrap Icons -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css"
+    />
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main class="vh-100">
+      <section class="home text-center">
+        <h1 id="home-title" class="display-1 fw-bold">Bienvenido tu Red</h1>
+        <button id="button-start" class="btn-action w-25 fw-bold fs-4 mt-5">
+          Continuar
+        </button>
+      </section>
+
+      <section
+        id="section-main"
+        class="vh-100 w-100 d-flex flex-column align-items-center d-none"
+      >
+        <h2 class="display-4 fw-bold my-5 text-center">
+          Elije una opción para continuar
+        </h2>
+
+        <div class="row mt-5 py-5 btn-container">
+          <div class="col-12 col-md-6 d-flex flex-column gap-5 w-50">
+            <button
+              class="btn-action"
+              id="insert-cash"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Insertar Dinero
+            </button>
+            <button
+              class="btn-action"
+              id="withdraw-cash"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Retirar Dinero
+            </button>
+          </div>
+
+          <div
+            class="col-12 col-md-6 d-flex flex-column align-items-end gap-5 w-50"
+          >
+            <button
+              class="btn-action"
+              id="detail-account"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            >
+              Consultar saldo
+            </button>
+            <button class="btn-action" id="logout">Salir</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Modal -->
+    <div
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <section class="modal-form">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel"></h1>
+              <!-- Modal title -->
+              <button
+                type="button"
+                class="btn-close"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body">
+              <div class="form-floating mb-3">
+                <input
+                  id="cant"
+                  type="number"
+                  class="form-control"
+                  id="floatingInput"
+                  placeholder="Cantidad"
+                />
+                <label for="floatingInput">Cantidad</label>
+              </div>
+
+              <div class="form-floating">
+                <input
+                  id="passcode"
+                  type="password"
+                  class="form-control"
+                  id="floatingPassword"
+                  placeholder="Clave"
+                />
+                <label for="floatingPassword">Clave</label>
+              </div>
+            </div>
+
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+              <button
+                id="btn-transaction"
+                type="button"
+                class="btn btn-primary"
+              >
+                Realizar Transacción
+              </button>
+            </div>
+          </section>
+
+          <section id="modal-receipt" class="d-none">
+            <div class="card shadow">
+              <div class="receipt card-body d-flex flex-column gap-4">
+                <h2 class="text-center">!Transación Exitosa!</h2>
+                <div class="receipt-item">
+                  <small>Tipo de transacción</small> <span id="type"></span>
+                </div>
+                <div class="receipt-item">
+                  <small>Fecha</small> <span id="date"></span>
+                </div>
+                <div class="receipt-item">
+                  <small>Monto</small> <span id="amount-receipt"></span>
+                </div>
+                <div class="receipt-item">
+                  <small>Nuevo saldo</small> <span id="new-balance"></span>
+                </div>
+                <p class="text-center">
+                  Gracias por utilizar nuestros servicios
+                </p>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="app.js"></script>
+  </body>
+</html>
